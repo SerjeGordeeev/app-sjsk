@@ -1,0 +1,41 @@
+{
+  "name": "sosnovsky-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/SerjeGordeev/sosnovsky-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/SerjeGordeev/sosnovsky-backend/issues"
+  },
+  "homepage": "https://gitlab.com/SerjeGordeev/sosnovsky-backend#README",
+  "dependencies": {
+    "async": "^2.1.1",
+    "asyncawait": "^1.0.6",
+    "body-parser": "^1.15.2",
+    "csvtojson": "^1.0.3",
+    "express": "4.14.0",
+    "express-jwt": "^5.1.0",
+    "json2csv": "^3.7.3",
+    "jsonwebtoken": "^7.1.9",
+    "jwt-decode": "^2.1.0",
+    "lodash": "^4.15.0",
+    "moment": "^2.15.1",
+    "mongoose": "^4.8.5",
+    "multiparty": "^4.1.2",
+    "node-static": "^0.7.8",
+    "nodemailer": "^0.7.1",
+    "openurl": "^1.1.1",
+    "optimist": "git+https://github.com/substack/node-optimist.git",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "password-generator": "^2.0.2"
+  }
+}

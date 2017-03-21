@@ -1,0 +1,64 @@
+@import "variables.scss";
+
+*{
+  font-family: "Roboto";
+}
+body, html{
+  overflow: hidden;
+}
+
+h1,h2,h3{
+  font-weight: normal;
+}
+
+.main_app_layout{
+  box-sizing: border-box;
+  background-color: #ECEFF1;
+  background-image: url("/images/town.jpg");
+  background-size: cover;
+  .app_title{
+    color: #fff;
+    text-shadow: $TEXT_SHADOW;
+    font-size: 2em;
+    margin: 0;
+  }
+}
+
+.md-bordered{
+  border: $MAIN_COLOR 2px solid !important;
+}
+
+.border-white{
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+.empty{
+  color: rgba(0,0,0,.5) !important;
+}
+
+md-icon{
+  &.white-icon   svg{
+    fill: #fff !important;
+  }
+
+  &.warn-icon   svg{
+    fill: $WARN_COLOR !important;
+  }
+}
+
+.md-button{
+  &.green{
+    background-color: $GREEN !important;
+  }
+  &.blue{
+    background-color: $BLUE !important;
+  }
+  &.yellow{
+    background-color: $YELLOW !important;
+  }
+}
+
+md-input-container{
+  margin-bottom: 0 !important;
+}
