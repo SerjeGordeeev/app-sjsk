@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbURI = 'mongodb://admin:admin@ds137220.mlab.com:37220/sosnovsky_db';
+const dbURI = 'mongodb://admin:admin@ds137220.mlab.com:37220/sosnovsky_db';//'mongodb://localhost/sosnovskyDB';
 let gracefulShutdown
 
 
@@ -46,6 +46,7 @@ process.on('SIGTERM', function() {
 // BRING IN YOUR SCHEMAS & MODELS
 require('./users')
 require('./tickets')
+require('./states')
 /*
 require('./organisations')
 require('./groups')

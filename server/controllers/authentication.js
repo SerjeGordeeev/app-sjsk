@@ -15,7 +15,7 @@ module.exports = {
 	register,
 	login,
 	remove,
-  update
+  	update
 }
 
 function register(req, res) {
@@ -23,7 +23,7 @@ function register(req, res) {
 	var user = new User();
 
 	let password = generatePassword(6, false);
-  let login = generatePassword(6, false);
+  	let login = generatePassword(6, false);
 
 	user.name = req.body.name;
 	user.login = req.body.login || login;

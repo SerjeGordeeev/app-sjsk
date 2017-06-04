@@ -97,10 +97,13 @@ function removeTicket(req, res) {
 
 function updateTicket(req, res) {
   let resTicket = null;
+
+  console.log(req.body)
+
   Ticket.findOneAndUpdate({_id: req.params.id}, req.body, {upsert:true}).exec()
   .then((ticket)=> {
    if (ticket.workerId) {
-   		console.log(ticket.workerId, 228);
+   		console.log(ticket.workerId);
   		User.findById(ticket.workerId).exec().then((worker) => {
   			console.log("Worker", worker);
   			//sendMail(worker, ticket);
@@ -110,8 +113,9 @@ function updateTicket(req, res) {
    res.json(ticket);
   })
   .catch(err=>{
-    res.status(500);
-    res.end(err);
+  	console.log(err)
+  	res.status(505);
+    res.json(err);
   })
 
 }

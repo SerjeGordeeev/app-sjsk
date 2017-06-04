@@ -1,9 +1,13 @@
 //const process = require('process')
 const mongoose = require('mongoose')
-const crypto = require('crypto')
-const jwt = require('jsonwebtoken')
 
 //const MY_SECRET = process.env.SECRET
+var messageSchema = new mongoose.Schema({
+	authorId: String,
+	data: String,
+	date: String,
+	time: String
+})
 
 var ticketSchema = new mongoose.Schema({
 	declarantName: String,
@@ -19,7 +23,8 @@ var ticketSchema = new mongoose.Schema({
 	closeDate: String,
 	closeTime: String,
 	closedDatePlanned: String,
-	closedTimePlanned: String
+	closedTimePlanned: String,
+	messages: {type: [messageSchema], default: []}
 })
 
 ticketSchema.methods.setWorker = function (workerId) {

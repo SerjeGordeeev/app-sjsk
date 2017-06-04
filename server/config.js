@@ -13,18 +13,19 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', express.static( __dirname + '/client'))
+
 
 app.use(passport.initialize());
 app.use('/api', require('./routes'));
 
+/*app.use('/', express.static('app_client'))*/
 
 module.exports = app;
 
-let staticRouts = ['auth','sign_in','sign_up','workers']
+/*let staticRouts = ['home','groups','organisations','members','psychologs','auth','props','my_group','admin']
 initStaticRouts(staticRouts)
 function initStaticRouts(routs){
 	routs.forEach(route =>{
-		app.use(`/${route}*`,express.static('client'))
+		app.use(`/${route}*`,express.static('app_client'))
 	})
-}
+}*/
