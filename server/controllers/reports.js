@@ -47,7 +47,7 @@ function getTicketsReport(req,res){
 		users: User.find({}).exec()
 	}).then((resp)=>{
 		let ticketsReportJson = _.map(resp.tickets, ticket=>{
-			let ticketObj = {}
+			let ticketObj = {};
 			
 			ticketObj["id заявки"] = ticket.id;
 			ticketObj["Создатель заявки"] = ticket.isExternal?"Гражданин":"Диспетчер";
@@ -55,7 +55,7 @@ function getTicketsReport(req,res){
 			ticketObj["Телефон заявителя"] = ticket.declarantPhone;
 			ticketObj["Описание"] = ticket.description;
 			ticketObj["Статус"] = ticket.statusTitle();
-			ticketObj["Работник"] = _.find(resp.users, (user) => user.id == ticket.workerId).name || "Не назначен";
+			ticketObj["Работник"] = _.get(_.find(resp.users, (user) => user.id == ticket.workerId),"name", "Не назначен");
 			ticketObj["Дата создания"] = ticket.createdDate;
 			ticketObj["Время создания"] = ticket.createdTime;
 		 	ticketObj["Дата план. завершения"] = ticket.closedDatePlanned;
@@ -72,6 +72,7 @@ function getTicketsReport(req,res){
 		fs.writeFileSync(__dirname+"/temp/report.csv", result)
 		res.download(__dirname+"/temp/report.csv", "Заявки.csv");
 	}).catch((err)=>{
+		console.log(err)
 		res.status(500)
 		res.json({message: "err.message"})
 	})
